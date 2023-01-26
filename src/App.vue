@@ -3,7 +3,7 @@ export default {};
 </script>
 <template>
   <div class="container">
-    <h1>ciao vue, chi non muore se rivede</h1>
+    <h1>ciao vue, chi non muore se rivede!</h1>
   </div>
 </template>
 
