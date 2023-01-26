@@ -28,17 +28,13 @@ export default {
 </script>
 <template>
   <div class="container">
+    <h1>ciao vue, chi non muore se rivede!</h1>
     <div class="row">
-      <div class="col-12">
-        <h1>ciao vue, chi non muore se rivede!</h1>
-      </div>
-      <div class="col">
-        <ProjectCard
-          v-for="project in projects"
-          :key="project.id"
-          :project="project"
-        />
-      </div>
+      <ProjectCard
+        v-for="project in projects"
+        :key="project.id"
+        :project="project"
+      />
     </div>
   </div>
 </template>
