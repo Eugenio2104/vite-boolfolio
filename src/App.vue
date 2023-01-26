@@ -1,5 +1,28 @@
 <script>
-export default {};
+import axios from "axios";
+
+export default {
+  name: "App",
+  data() {
+    return {
+      baseURL: "http://localhost:8000/api",
+      projectURI: "/project",
+      projects: [],
+    };
+  },
+  methods: {
+    getApi() {
+      axios.get(this.baseURL + this.projectURI).then((r) => {
+        this.projects = r.data;
+        console.log(this.projects);
+      });
+      //  .catch(error=>(errorMsg=error))
+    },
+  },
+  mounted() {
+    this.getApi();
+  },
+};
 </script>
 <template>
   <div class="container">
