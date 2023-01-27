@@ -30,16 +30,6 @@ export default {
 <template>
   <Header />
   <router-view> </router-view>
-  <div class="container">
-    <h1>ciao vue, chi non muore se rivede!</h1>
-    <div class="row">
-      <ProjectCard
-        v-for="project in projects"
-        :key="project.id"
-        :project="project"
-      />
-    </div>
-  </div>
 </template>
 
 
