@@ -12,7 +12,13 @@ export default {
 <template>
   <div class="card" style="width: 18rem">
     <div class="card-body">
-      <h5 class="card-title">{{ project.name }}</h5>
+      <h3>
+        <router-link
+          :to="{ name: 'projectDetail', params: { slug: project.slug } }"
+          >{{ project.name }}</router-link
+        >
+      </h3>
+
       <p class="card-text">
         {{ project.summary }}
       </p>

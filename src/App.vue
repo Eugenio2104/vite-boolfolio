@@ -28,7 +28,7 @@ export default {
 };
 </script>
 <template>
-  <Header />
+  <Header class="mb-5" />
   <router-view> </router-view>
 </template>
 
