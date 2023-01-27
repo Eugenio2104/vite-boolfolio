@@ -1,12 +1,11 @@
 <script>
 export default {
-  name: "Home",
+  name: "Error404",
 };
 </script>
+
 <template>
-  <div class="container">
-    <h1>Home</h1>
-  </div>
+  <h1>ERRORE 404</h1>
 </template>
 
 

@@ -1,9 +1,10 @@
 <script>
 import axios from "axios";
 import ProjectCard from "./components/ProjectCard.vue";
+import Header from "./components/partials/Header.vue";
 
 export default {
-  components: { ProjectCard },
+  components: { ProjectCard, Header },
   name: "App",
   data() {
     return {
@@ -27,6 +28,8 @@ export default {
 };
 </script>
 <template>
+  <Header />
+  <router-view> </router-view>
   <div class="container">
     <h1>ciao vue, chi non muore se rivede!</h1>
     <div class="row">
