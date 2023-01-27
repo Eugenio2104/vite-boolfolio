@@ -6,7 +6,7 @@ export default {
 <template>
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">EB</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -21,13 +21,26 @@ export default {
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <router-link :to="{ name: 'home' }">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">chi siamo</a>
+            <router-link :to="{ name: 'project' }">
+              <a class="nav-link active" aria-current="page" href="#"
+                >Project</a
+              >
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">contatti</a>
+            <router-link :to="{ name: 'about' }">
+              <a class="nav-link" href="#">chi siamo</a>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link :to="{ name: 'contacts' }">
+              <a class="nav-link" href="#">contatti</a>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -37,4 +50,10 @@ export default {
 
 
 <style lang="scss" scoped>
+a {
+  text-decoration: none;
+  &.active {
+    color: yellow;
+  }
+}
 </style>
