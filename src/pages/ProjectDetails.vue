@@ -30,7 +30,7 @@ export default {
 </script>
 <template>
   <div class="card" style="width: 18rem">
-    <img src="..." class="card-img-top" alt="..." />
+    <img :src="project.cover_image" class="card-img-top" :alt="project.name" />
     <div class="card-body">
       <h5 class="card-title">
         <h1>{{ project.name }}</h1>
