@@ -20,12 +20,20 @@ export default {
         email: this.email,
         message: this.message,
       };
-      // console.log(data);
+      console.log(data);
 
-      axios.post(this.baseURL + this.projectURI).then((result) => {
+      axios.post(this.baseURL + this.projectURI, data).then((result) => {
+        console.log(result.data);
         if (!result.data.success) {
+          console.log("no");
           this.errors = result.data.errors;
-          console.log(this.errors);
+        } else {
+          console.log("si");
+          //ripulisco form
+          this.name = "";
+          this.email = "";
+          this.message = "";
+          this.errors = {};
         }
       });
     },
@@ -118,7 +126,7 @@ export default {
                         <div class="form-group">
                           <input
                             type="submit"
-                            value="Send Message"
+                            value="Invia Email"
                             class="btn btn-primary"
                           />
                           <div class="submitting"></div>
@@ -126,83 +134,6 @@ export default {
                       </div>
                     </div>
                   </form>
-                </div>
-              </div>
-              <div class="col-md-6 d-flex align-items-stretch bg-custom">
-                <div class="info-wrap w-100 p-lg-5 p-4 img">
-                  <h3>Contact us</h3>
-                  <p class="mb-4">
-                    We're open for any suggestion or just to have a chat
-                  </p>
-                  <div class="dbox w-100 d-flex align-items-start">
-                    <div
-                      class="
-                        icon
-                        d-flex
-                        align-items-center
-                        justify-content-center
-                      "
-                    >
-                      <span class="fa fa-map-marker"></span>
-                    </div>
-                    <div class="text pl-3">
-                      <p>
-                        <span>Address:</span> 198 West 21th Street, Suite 721
-                        New York NY 10016
-                      </p>
-                    </div>
-                  </div>
-                  <div class="dbox w-100 d-flex align-items-center">
-                    <div
-                      class="
-                        icon
-                        d-flex
-                        align-items-center
-                        justify-content-center
-                      "
-                    >
-                      <span class="fa fa-phone"></span>
-                    </div>
-                    <div class="text pl-3">
-                      <p>
-                        <span>Phone:</span>
-                        <a href="tel://1234567920">+ 1235 2355 98</a>
-                      </p>
-                    </div>
-                  </div>
-                  <div class="dbox w-100 d-flex align-items-center">
-                    <div
-                      class="
-                        icon
-                        d-flex
-                        align-items-center
-                        justify-content-center
-                      "
-                    >
-                      <span class="fa fa-paper-plane"></span>
-                    </div>
-                    <div class="text pl-3">
-                      <p>
-                        <span>Email:</span>
-                        <a href="mailto:info@yoursite.com">info@yoursite.com</a>
-                      </p>
-                    </div>
-                  </div>
-                  <div class="dbox w-100 d-flex align-items-center">
-                    <div
-                      class="
-                        icon
-                        d-flex
-                        align-items-center
-                        justify-content-center
-                      "
-                    >
-                      <span class="fa fa-globe"></span>
-                    </div>
-                    <div class="text pl-3">
-                      <p><span>Website</span> <a href="#">yoursite.com</a></p>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

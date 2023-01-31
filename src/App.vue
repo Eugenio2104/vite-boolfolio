@@ -17,7 +17,7 @@ export default {
     getApi() {
       axios.get(this.baseURL + this.projectURI).then((r) => {
         this.projects = r.data.projects;
-        console.log(this.projects);
+        // console.log(this.projects);
       });
       //  .catch(error=>(errorMsg=error))
     },
