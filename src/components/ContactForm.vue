@@ -1,17 +1,34 @@
 <script>
+import axios from "axios";
+
 export default {
   name: "ContactForm",
+  data() {
+    return {
+      baseURL: "http://127.0.0.1:8000/api",
+      projectURI: "/contacts",
+      name: "",
+      email: "",
+      message: "",
+    };
+  },
+  methods: {
+    sendForm() {
+      const data = {
+        name: this.name,
+        email: this.email,
+        message: this.message,
+      };
+      console.log(data);
+    },
+  },
 };
 </script>
 
 <template>
   <section class="ftco-section">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-6 text-center mb-5">
-          <h2 class="heading-section">Contact Form #04</h2>
-        </div>
-      </div>
+      <div class="row justify-content-center"></div>
       <div class="row justify-content-center">
         <div class="col-md-10">
           <div class="wrapper">
@@ -23,16 +40,12 @@ export default {
                   <div id="form-message-success" class="mb-4">
                     Your message was sent, thank you!
                   </div>
-                  <form
-                    method="POST"
-                    id="contactForm"
-                    name="contactForm"
-                    class="contactForm"
-                  >
+                  <form @submit.prevent="sendForm()" class="contactForm">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">
                           <input
+                            v-model.trim="name"
                             type="text"
                             class="form-control"
                             name="name"
@@ -44,6 +57,7 @@ export default {
                       <div class="col-md-12">
                         <div class="form-group">
                           <input
+                            v-model.trim="email"
                             type="email"
                             class="form-control"
                             name="email"
@@ -53,19 +67,12 @@ export default {
                         </div>
                       </div>
                       <div class="col-md-12">
-                        <div class="form-group">
-                          <input
-                            type="text"
-                            class="form-control"
-                            name="subject"
-                            id="subject"
-                            placeholder="Subject"
-                          />
-                        </div>
+                        <div class="form-group"></div>
                       </div>
                       <div class="col-md-12">
                         <div class="form-group">
                           <textarea
+                            v-model.trim="message"
                             name="message"
                             class="form-control"
                             id="message"
@@ -172,12 +179,6 @@ export default {
       </div>
     </div>
   </section>
-
-  <!-- <script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.validate.min.js"></script>
-  <script src="js/main.js"></script> -->
 </template>
 
 
