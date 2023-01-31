@@ -10,6 +10,7 @@ export default {
       name: "",
       email: "",
       message: "",
+      errors: {},
     };
   },
   methods: {
@@ -19,7 +20,14 @@ export default {
         email: this.email,
         message: this.message,
       };
-      console.log(data);
+      // console.log(data);
+
+      axios.post(this.baseURL + this.projectURI).then((result) => {
+        if (!result.data.success) {
+          this.errors = result.data.errors;
+          console.log(this.errors);
+        }
+      });
     },
   },
 };
@@ -45,6 +53,7 @@ export default {
                       <div class="col-md-12">
                         <div class="form-group">
                           <input
+                            :class="{ 'is-invalid': errors.name }"
                             v-model.trim="name"
                             type="text"
                             class="form-control"
@@ -52,11 +61,19 @@ export default {
                             id="name"
                             placeholder="Name"
                           />
+                          <p
+                            v-for="(error, index) in errors.name"
+                            :key="'name' + index"
+                            class="error"
+                          >
+                            {{ error }}
+                          </p>
                         </div>
                       </div>
                       <div class="col-md-12">
                         <div class="form-group">
                           <input
+                            :class="{ 'is-invalid': errors.email }"
                             v-model.trim="email"
                             type="email"
                             class="form-control"
@@ -64,6 +81,13 @@ export default {
                             id="email"
                             placeholder="Email"
                           />
+                          <p
+                            v-for="(error, index) in errors.email"
+                            :key="email + index"
+                            class="error"
+                          >
+                            {{ error }}
+                          </p>
                         </div>
                       </div>
                       <div class="col-md-12">
@@ -72,6 +96,7 @@ export default {
                       <div class="col-md-12">
                         <div class="form-group">
                           <textarea
+                            :class="{ 'is-invalid': errors.message }"
                             v-model.trim="message"
                             name="message"
                             class="form-control"
@@ -80,6 +105,13 @@ export default {
                             rows="6"
                             placeholder="Message"
                           ></textarea>
+                          <p
+                            v-for="(error, index) in errors.message"
+                            :key="message + index"
+                            class="error"
+                          >
+                            {{ error }}
+                          </p>
                         </div>
                       </div>
                       <div class="col-md-12">
